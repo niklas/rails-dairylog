@@ -4,7 +4,7 @@ module Rails
   module Dairylog
     class Engine < ::Rails::Engine
       config.to_prepare do
-        Rails.logger.formatter = Rails::Dairylog::CowLoggerFormatter.new
+        Rails.logger.formatter = Rails::Dairylog::CowLoggerFormatter.nerw
       end
     end
 
@@ -12,7 +12,7 @@ module Rails
       include ActiveSupport::TaggedLogging::Formatter
       def initialize
         super
-        if system("which cowsay")
+        if system("which cowsay &>/dev/null")
           @sayer = `which cowsay`.chomp + ' -W 9001'
         end
       end
