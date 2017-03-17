@@ -1,0 +1,7 @@
+
+
+
+
+
+
+              Do you hate the standard Rails logging format?
