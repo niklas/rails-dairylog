@@ -2,6 +2,12 @@ require "rails/dairylog/version"
 
 module Rails
   module Dairylog
+    class Engine < ::Rails::Engine
+      config.to_prepare do
+        Rails.logger.formatter = Rails::Dairylog::CowLoggerFormatter.new
+      end
+    end
+
     class CowLoggerFormatter < ActiveSupport::Logger::SimpleFormatter
       include ActiveSupport::TaggedLogging::Formatter
       def initialize
