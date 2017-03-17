@@ -4,7 +4,7 @@ module Rails
   module Dairylog
     class Engine < ::Rails::Engine
       config.to_prepare do
-        Rails.logger.formatter = Rails::Dairylog::CowLoggerFormatter.nerw
+        Rails.logger.formatter = Rails::Dairylog::CowLoggerFormatter.new
       end
     end
 
