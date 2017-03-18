@@ -6,7 +6,7 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your Rails application's Gemfile:
 
 ```ruby
 gem 'rails-dairylog'
@@ -16,13 +16,11 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install rails-dairylog
-
 ## Usage
 
-TODO: Write usage instructions here
+Look at logs. If nothing changes, reflect on your life choices and install `cowsay` by spilling beer on your mac or use a package manager.
+
+If you want more chatter, set `MOO_FACTOR=23` or something.
 
 ## Development
 
