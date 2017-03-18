@@ -19,7 +19,7 @@ module Rails
       end
       def call(severity, time, progname, msg)
         if @sayer && msg.present?
-          super severity, time, progname, cowsay(msg)
+          super severity, time, progname, cowsay(cowsay(msg))
         else
           super
         end
