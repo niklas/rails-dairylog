@@ -14,7 +14,7 @@ module Rails
       def initialize
         super
         if system("which cowsay &>/dev/null")
-          @sayer = `which cowsay`.chomp + ' -n'
+          @sayer = `which cowsay`.chomp
           @moo_factor = (ENV.fetch('MOO_FACTOR') { 1 }).to_i
           raise("cannot MOO #{@moo_factor} times") unless @moo_factor > 0
         end
@@ -36,8 +36,22 @@ module Rails
       end
 
       def cowsay(str)
-        res, _ok = Open3.capture2(@sayer, stdin_data: str)
+        res, _ok = Open3.capture2(sayer, stdin_data: str)
         res
+      end
+
+      def sayer
+        @sayer + " -n -f #{all_cows.sample}"
+      end
+
+      def all_cows
+        @all_cows ||=
+          begin
+            s, _ok = Open3.capture2(@sayer + ' -l')
+            s.lines.reject do |line|
+              line =~ /Cow files in/
+            end.join(" ").split(" ").compact
+          end
       end
     end
   end
