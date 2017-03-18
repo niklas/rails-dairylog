@@ -1,8 +1,21 @@
 # Rails::Dairylog
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/rails/dairylog`. To experiment with that code, run `bin/console` for an interactive prompt.
+Do you hate the standard Rails logging format?
 
-TODO: Delete this and the text above, and describe your gem
+
+              Not enough milk?
+
+
+              I have a solution:
+
+
+              _       _            _
+           __| | __ _(_)_ __ _   _| | ___   __ _  __ _  ___ _ __
+          / _` |/ _` | | '__| | | | |/ _ \ / _` |/ _` |/ _ \ '__|
+         | (_| | (_| | | |  | |_| | | (_) | (_| | (_| |  __/ |
+          \__,_|\__,_|_|_|   \__, |_|\___/ \__, |\__, |\___|_|
+                             |___/         |___/ |___/
+
 
 ## Installation
 
