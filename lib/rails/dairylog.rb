@@ -1,4 +1,5 @@
 require "rails/dairylog/version"
+require 'open3'
 
 module Rails
   module Dairylog
@@ -13,7 +14,7 @@ module Rails
       def initialize
         super
         if system("which cowsay &>/dev/null")
-          @sayer = `which cowsay`.chomp + ' -W 9001'
+          @sayer = `which cowsay`.chomp + ' -n'
         end
       end
       def call(severity, time, progname, msg)
@@ -25,11 +26,8 @@ module Rails
       end
 
       def cowsay(str)
-        "\n" + `#{@sayer} "#{escape_for_shell str}"`
-      end
-
-      def escape_for_shell(str)
-        str.gsub('"', '\\"').strip
+        res, _ok = Open3.capture2(@sayer, stdin_data: str)
+        res
       end
     end
   end
