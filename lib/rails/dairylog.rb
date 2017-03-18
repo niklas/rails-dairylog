@@ -18,12 +18,14 @@ module Rails
       end
       def call(severity, time, progname, msg)
         if @sayer && msg.present?
-          emsg = escape_for_shell msg
-          cmsg = "\n" + `#{@sayer} "#{emsg}"`
-          super severity, time, progname, cmsg
+          super severity, time, progname, cowsay(msg)
         else
           super
         end
+      end
+
+      def cowsay(str)
+        "\n" + `#{@sayer} "#{escape_for_shell str}"`
       end
 
       def escape_for_shell(str)
